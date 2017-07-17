@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+ function AddStyle(){
+	$("p:not(#HiddenText)").css("background-color", "orange").css("color", "green");
+ }
+ function RemoveStyle(){
+	$("p:not(#HiddenText)").removeAttr('style');
+ }
+ function EnableButton(){
+	console.log($("#HiddenText"));
+	$("button:last").prop("disabled", false);
+ }
+ function ShowSecret(){
+	$("#HiddenText").css("display", "block");
+ }
+</script>
+</head>
+<body>
+	<p>This is a test</p>
+	<p>This is a test</p>
+	<p>This is a test</p>
+	<p>This is a test</p>
+	<p>This is a test</p>
+	<p>This is a test</p>
+	<p>This is a test</p>
+						
+	<p id="HiddenText" style="display:none">SECRET FOUND!</p>
+	
+    <div style="margin-top:15px;">
+        <button type="button" onclick="AddStyle()">Add style</button>
+        <button type="button" onclick="RemoveStyle()">Remove style</button>
+    </div>
+	<div style="margin-top:15px;">
+        <button type="button" onclick="EnableButton()">Enable button</button>
+        <button id="DisableButton" type="button" onclick="ShowSecret()" disabled>Show hidden</button>
+    </div>
+</html>

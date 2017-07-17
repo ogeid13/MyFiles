@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		function izqADerecha(){
+			$("#ul2").append($("#ul1 li"));
+		}
+	    function derAIzquierda(){
+			$("#ul1").append($("#ul2 li"));
+		}
+		function addClassIzq(){
+			$("ul li").removeClass()
+		}
+		function addClassDer(){
+			$("#ul1 li").addClass("Error");
+		}
+		function removeCustomClass(){
+			$("#ul1 li").removeClass();
+		}
+	</script>
+	
+	<style>
+        .divStyle{
+            width:50%;
+            float:left;
+        }
+        .Error{
+            color:red;
+            font-size:25px;
+            border-color:blue;
+        }
+        .Success{
+            color:blueviolet;
+            font-size:30px;
+            border-color:yellow;
+        }
+        .bdColor{
+            background-color:orange;
+        }
+    </style>
+	
+</head>
+<body>
+<!--
+	1- Mover todos los 'li' del 'ul1' al 'ul2'
+	2- Mover todos los 'li' del 'ul2' al 'ul1'
+	3- Remover todas las clases de todos los li de todos los ul
+	4- Agregar la clase error a todos los 'li' en 'ul1'
+	5- Remover todas las clases de 'ul1'
+-->
+
+	<div id="content">
+        <p>BOOM a text for Demo</p>
+        <div class="divStyle">
+            <ul id="ul1">
+                <li>
+                    Boom 1
+                </li>
+                <li>
+                    Boom 2
+                </li>
+                <li>
+                    Boom 3
+                </li>
+                <li>
+                    Boom 4
+                </li>
+                <li>
+                    Boom 5
+                </li>
+            </ul>
+        </div>
+        <div class="divStyle">
+            <ul id="ul2">
+            </ul>
+        </div>
+    </div>   
+    <div style="margin-top:15px;">
+        <button type="button" onclick="izqADerecha()">De izq a der</button>
+        <button type="button" onclick="derAIzquierda()">De der a izq</button>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="addClassIzq()">Class Izq</button>
+        <button type="button" onclick="addClassDer()">Class Der</button>
+        <button type="button" onclick="removeCustomClass()">Remove Class</button>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+ function getTable(){
+	console.log($("table"));
+ }
+ function getTRow(){
+	console.log($("table tr"));
+ }
+ function getTD(){
+	console.log($("table tr td"));
+ }
+ function getHs(){
+	console.log($("div h1, div h2"));
+ }
+</script>
+</head>
+<body>
+<table>
+ <tr>
+  <td>1</td><td>2</td>
+ </tr>
+ <tr>
+  <td>3</td><td>4</td>
+ </tr>
+</table>
+<div>
+    <h1>Soy el H1</h1>
+    <h2>Soy el H2</h2>
+</div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="getTable()">Get Table</button>
+        <button type="button" onclick="getTRow()">Get Rows</button>
+        <button type="button" onclick="getTD()">Get Cells</button>
+        <button type="button" onclick="getHs()">Get Hs</button>
+    </div>
+</html>

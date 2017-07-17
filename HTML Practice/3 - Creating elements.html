@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		function createLinkElement(){
+			var elemento = $("<p/>",{
+				html: "This is a <strong>new</strong> link",
+				"class": "boom"
+			});
+			$("#content").append(elemento);
+		}
+	    function removeElement(){
+			$("a").remove();
+		}
+		function emptyElement(){
+			$("#content").empty();
+		}
+		function reemplazarA(){
+			$("a").replaceWith($("p"));
+		}
+		function reemplazarCon(){
+			$("p").replaceAll($("a"));
+		}
+	</script>
+	
+	<style>
+        .boom{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+<!--
+	
+	5- Reemplazar todos los elementos A con P-->
+
+
+	 <div id="content">
+        <a href="#">Hola</a>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="createLinkElement()">Create A Element</button>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="removeElement()">Remove</button>
+        <button type="button" onclick="emptyElement()">Empty Div</button>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="reemplazarA()">Reemplazar Todos</button>
+        <button type="button" onclick="reemplazarCon()">Reemplazar Con</button>
+    </div>
+</body>
+</html>

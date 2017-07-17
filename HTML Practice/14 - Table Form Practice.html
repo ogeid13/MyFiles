@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		
+			function validateMyForm(){
+				var flag = true;
+			
+				$("#myForm input[type=text]").each(function(){
+					if(!$(this).val().trim()){
+						$(this).addClass("Error");
+						flag = false;
+					}else{
+						$(this).removeClass();
+					}
+				});
+				
+				return flag;
+			}
+			
+			function AddObject(){
+				if(validateMyForm()){
+					$("#MyTable tbody").append("<tr><td name='First'>"+$("#firstInput").val()+"</td><td name='Second'>"+$("#secondInput").val()+"</td><td name='Third'>"+$("#thirdInput").val()+"</td><td name='Fourth'>"+$("#fourthInput").val()+"</td></tr>");
+					
+					$("input[type='text']").val("");
+				}
+			}
+			
+			function PrintData(){
+				$.each($("#MyTable tbody tr"), function(index, ActualRow){
+					console.log("The index is: " + index +
+					". The first input is: " + ActualRow.cells[0].innerText +
+					". Second: " + ActualRow.cells[1].innerText +
+					". Third: " + ActualRow.cells[2].innerText +
+					". Fourth: " + ActualRow.cells[3].innerText);
+				});
+			}
+			
+		</script>
+		
+		<style>
+			.Error{
+				border: solid 1px red;
+			}
+			table{
+				margin-top:25px;
+				border: solid 1px black;
+			}
+
+			table tr th{
+				border: solid 1px black;
+			}
+			
+			table tr td{
+				border: solid 1px black;
+			}
+		</style>
+		
+	</head>
+<!--
+
+	1- Insertar los valores del form en la tabla
+	2- Imprimir los valores de la tabla en consola
+	3- El form debe estar validado
+		
+-->
+	<body>
+		<form id="myForm">
+			<label>First Input:</label>
+			<br>
+			<input type="text" id="firstInput" value="">
+			<br>
+			<span>Second Input:</span>
+			<br>
+			<input type="text" id="secondInput" value="">
+			<br>        
+			Third Input:<br>
+			<input type="text" id="thirdInput" value="">
+			<br>        
+			Fourth Input:<br>
+			<input type="text" id="fourthInput" value="">
+			<br>
+			<br><br>
+			<input type="button" value="Add" onclick="AddObject()">
+			<input type="button" value="Show values" onclick="PrintData()">
+		</form>
+		<table id="MyTable">
+			<thead>
+				<tr>
+					<th>First</th>
+					<th>Second</th>
+					<th>Third</th>
+					<th>Fourth</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			</tbody>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		
+			$Array = [];
+		
+			function validateMyForm(){
+				var flag = true;
+			
+				$("#myForm input[type=text]").each(function(){
+					if(!$(this).val().trim()){
+						$(this).addClass("Error");
+						flag = false;
+					}else{
+						$(this).removeClass();
+					}
+				});
+				
+				return flag;
+			}
+			
+			function AddObject(){
+			
+				if(validateMyForm()){
+					var Object = 
+					{	
+						First: $("#firstInput").val(),
+						Second: $("#secondInput").val(),
+						Third: $("#thirdInput").val(),
+						Fourth: $("#fourthInput").val()
+					}
+					
+					$Array.push(Object);
+					
+					$("#myForm input[type=text]").each(function(){
+						$(this).val("");
+					});
+				}
+			}
+			
+			function PrintData(){
+				console.clear();
+				$.each($Array, function(index, actualElement){
+					console.log("index: " + index + " First: " + actualElement.First + " Second: " + actualElement.Second + " Third: " + actualElement.Third + " Fourth: " + actualElement.Fourth)
+				});
+			
+			}
+			
+		</script>
+		
+		<style>
+			.Error{
+				border: solid 1px red;
+			}
+		</style>
+		
+	</head>
+<!--
+
+	1- mensaje en console al hacer click en label
+	2- mensaje en console al hacer doble click en el primer input
+	3- mensaje en console al pasar el mouse sobre el span
+	4- mensaje en console al mover el mouse por form
+		
+-->
+	<body>
+		<form id="myForm">
+			<label>First Input:</label>
+			<br>
+			<input type="text" id="firstInput" value="">
+			<br>
+			<span>Second Input:</span>
+			<br>
+			<input type="text" id="secondInput" value="">
+			<br>        
+			Third Input:<br>
+			<input type="text" id="thirdInput" value="">
+			<br>        
+			Fourth Input:<br>
+			<input type="text" id="fourthInput" value="">
+			<br>
+			<br><br>
+			<input type="button" value="Add" onclick="AddObject()">
+			<input type="button" value="Show values" onclick="PrintData()">
+		</form>
+	</body>
+</html>

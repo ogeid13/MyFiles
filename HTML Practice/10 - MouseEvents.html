@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		
+		$(document).ready(function(){
+			$("label").on("click", function(){
+				console.log("CLICKED")
+			});
+			
+			$("#firstInput").on("dblclick", function(){
+				console.log("DOUBLE CLICKED");
+			});
+			
+			$("span").hover(function(){
+				console.log("HOVERING!!");
+			});
+			
+			$("form").on("mousemove", function(){
+				console.log("MOVING");
+			});
+			
+			
+		});
+			
+		</script>
+		
+		<style>
+			
+		</style>
+		
+	</head>
+<!--
+
+	1- mensaje en console al hacer click en label
+	2- mensaje en console al hacer doble click en el primer input
+	3- mensaje en console al pasar el mouse sobre el span
+	4- mensaje en console al mover el mouse por form
+		
+-->
+	<body>
+		<form id="myForm">
+			<label>First Input:</label>
+			<br>
+			<input type="text" id="firstInput" value="">
+			<br>
+			<span>Second Input:</span>
+			<br>
+			<input type="text" id="secondInput" value="">
+			<br>        
+			Third Input:<br>
+			<input type="text" id="thirdInput" value="">
+			<br>
+			<br><br>
+			<br><br>
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>

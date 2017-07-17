@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+	
+	$(document).ready(function(){
+		$("#firstInput").on("keydown", function(ev){
+			console.log("The key pressed was '" + ev.key + "' and its code is "+ ev.keyCode);
+		});
+		$("#secondInput").on("keypress", function(ev){
+			console.log("The key pressed was '" + ev.key + "' and its code is "+ ev.keyCode);
+		});
+		$("#thirdInput").on("keyup", function(ev){
+			console.log("The key pressed was '" + ev.key + "' and its code is "+ ev.keyCode);
+		});
+	});
+		
+	</script>
+	
+	<style>
+        
+    </style>
+	
+</head>
+<!--
+
+	
+
+-->
+	<body>
+		
+		<form id="myForm">
+			First Input:<br>
+			<input type="text" id="firstInput" value="">
+			<br/>
+			Second Input:<br>
+			<input type="text" id="secondInput" value="">
+			<br/>        
+			Third Input:<br>
+			<input type="text" id="thirdInput" value="">
+			<br/>
+			<br/><br/>
+			<br/><br/>
+			<input type="submit" value="Submit">
+		</form>
+	
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		function addCustomClass(){
+			$("p").addClass("Error");
+		}
+	    function addCustom2Classes(){
+			$("p").addClass("Success bdColor");
+		}
+		function removeCustomClasses(){
+			$("p").removeClass("Error Success bdColor");
+		}
+		function getPosition(){
+			console.log($("p").position().left);
+		}
+	</script>
+	
+	<style>
+        .Error{
+            color:red;
+            font-size:25px;
+            border-color:blue;
+        }
+        .Success{
+            color:blueviolet;
+            font-size:30px;
+            border-color:yellow;
+        }
+        .bdColor{
+            background-color:orange;
+        }
+    </style>
+	
+</head>
+<body>
+<!--
+	1- Agregar la clase "Error" a todos los parrafos
+	2- Agregar la clase "Success bdColor" a todos los parrafos
+	3- Remover todas las clases de todos los parrafos
+	4- Optener la posicion de todos los parrafos a referencia del lado izquierdo
+-->
+
+	 <div id="content">
+        <p>BOOM a text for Demo</p>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="addCustomClass()">Add Class</button>
+        <button type="button" onclick="addCustom2Classes()">Add 2 Classes</button>
+        <button type="button" onclick="removeCustomClasses()">Remove Class</button>
+    </div>
+    <div style="margin-top:15px;">
+        <button type="button" onclick="getPosition()">Get Position</button>
+    </div>
+
+
+</body>
+</html>
