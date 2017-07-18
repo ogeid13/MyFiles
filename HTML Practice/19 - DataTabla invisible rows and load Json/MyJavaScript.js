@@ -64,7 +64,55 @@ $(document).ready(function(){
 			});
 		}
 	});
+	
 });
+
+function AddJson(){
+	$.each($.parseJSON(getMyJson()), function(index, object){
+		var Entry = [
+			"<span class=\"glyphicon glyphicon-plus-sign\"></span>",
+			object.First,
+			object.Second,
+			object.Third,
+			object.Fourth,
+			object.Fifth,
+			object.Sixth,
+			  '<span class=\"glyphicon glyphicon-edit\"data-toggle=\"modal\" data-target=\"#CreateModal\"></span> ' + ' | '
+			+ '<span class=\"glyphicon glyphicon-trash\"data-toggle=\"modal\" data-target=\"#DeleteModal\"></span>'
+		];
+		
+		$table.row.add(Entry).draw();
+	});
+}
+
+function getMyJson(){
+    object = [];
+	object.push({
+		First: "boom",
+		Second: "baam",
+		Third: "biim",
+		Fourth: "buum",
+		Fifth: "ex1",
+		Sixth: "ex2"
+	});
+	object.push({
+	    First: "let's",
+	    Second: "do",
+	    Third: "this",
+	    Fourth: "shite",
+	    Fifth: "ex1.2",
+	    Sixth: "ex2.2"
+	});
+	object.push({
+		First: "I",
+		Second: "Love",
+		Third: "My",
+		Fourth: "Pollo",
+		Fifth: "ex1.3",
+		Sixth: "ex2.3"
+	});
+	return (JSON.stringify(object));
+}
 
 function addAndRemoveClassByIdElem(elementIdentifier, classToAdd, classToRemove){
 	$(elementIdentifier).addClass(classToAdd).removeClass(classToRemove);	

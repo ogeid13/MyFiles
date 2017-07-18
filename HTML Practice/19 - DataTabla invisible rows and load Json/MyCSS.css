@@ -12,6 +12,9 @@ tbody > tr {
         transition: 0s;
     }
 
+table{
+	width: 100% !important;
+}
 
 .glyphicon {
     color: black;
