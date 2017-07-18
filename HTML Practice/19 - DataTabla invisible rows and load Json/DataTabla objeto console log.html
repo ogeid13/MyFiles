@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	
+	<!-- Bootstrap Core CSS -->
+    <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="./bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="./bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="./bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="./bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="./bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="./bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+	
+	<!-- My CSS -->
+	<link href="MyCSS.css" rel="stylesheet" />
+	
+    <title>JQuery Test</title>
+</head>
+<body>
+	 <div class="container">
+		<div class="panel panel-primary">
+			<!-- Default panel contents -->
+			<div class="panel-heading">
+				Panel heading
+			</div>
+			<div class="panel-body">
+			
+				<!-- inputs -->
+				<form id="Inputs">
+					<div class="form-group">
+						<label class="control-label" for="Input1">First entry:</label>
+						<input id="Input1" type="text" class="form-control" placeholder="First entry">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="Input2">Second entry:</label>
+						<input id="Input2" type="text" class="form-control" placeholder="Second entry">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="Input3">Third entry:</label>
+						<input id="Input3" type="text" class="form-control" placeholder="Third entry">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="Input4">Fourth entry:</label>
+						<input id="Input4" type="text" class="form-control" placeholder="Fourth entry">
+					</div>
+				</form>
+			
+				<!-- Table -->
+				<table class="table table-responsive" id="Table">
+					<thead>
+						<tr>
+							<th>Details</th>
+							<th>First input</th>
+							<th>Second input</th>
+							<th>Third input</th>
+							<th>Fourth input</th>
+							<th>Extra one</th>
+							<th>Extra two</th>
+							<th>Options</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+				
+				<!-- Buttons -->
+				<div>
+					<!-- Add Button -->
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#CreateModal" onclick="ModifyModal(false)">Add entry</button>
+					<!-- Show Button -->
+					<button class="btn btn-success" type="button" onclick="ShowEntries()" disabled>Show all the entries</button>
+                </div>
+				
+			</div>
+        </div>
+    </div>
+	
+	<!-- Modals -->
+	<!-- Add modal -->
+	<div class="modal fade" id="CreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Add a new entry</h4>
+				</div>
+				<div class="modal-body">
+					<form id="Formulario">
+						<div class="form-group">
+							<input id="IdContainer" type="hidden" class="form-control" placeholder="First entry">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="FirstAdd">First entry:</label>
+							<input id="FirstAdd" type="text" class="form-control" placeholder="First entry">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="SecondAdd">Second entry:</label>
+							<input id="SecondAdd" type="text" class="form-control" placeholder="Second entry">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="ThirdAdd">Third entry:</label>
+							<input id="ThirdAdd" type="text" class="form-control" placeholder="Third entry">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="FourthAdd">Fourth entry:</label>
+							<input id="FourthAdd" type="text" class="form-control" placeholder="Fourth entry">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="ThirdAdd">Extra one:</label>
+							<input id="ExtraOneAdd" type="text" class="form-control" placeholder="Third entry">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="FourthAdd">Extra two:</label>
+							<input id="ExtraTwoAdd" type="text" class="form-control" placeholder="Fourth entry">
+						</div>
+					</form>
+					<button id="CreateBtn" class="btn btn-primary" onclick="AddElement()">Create</button>
+					<button id="EditBtn" class="btn btn-primary" onclick="EditElement()">Edit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Delete modal -->
+	<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myDeleteLabel">Do you really want to delete this entry?</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<input id="IdDeleter" type="hidden" class="form-control" placeholder="First entry">
+						</div>
+					</form>
+					<button id="DeleteBtn" class="btn btn-danger In-Line Float-Right" onclick="DeleteRow()">Delete</button>
+					<button id="CancelBtn" class="btn btn-default In-Line" data-dismiss="modal" >Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="MyJavaScript.js"></script>
+</body>
+</html>

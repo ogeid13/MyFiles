@@ -1,0 +1,37 @@
+body {
+    margin: 10px;
+}
+
+tbody > tr {
+    background-color: white;
+    transition: 0.5s;
+}
+
+    tbody > tr:hover {
+        background-color: #eaf5ff;
+        transition: 0s;
+    }
+
+
+.glyphicon {
+    color: black;
+    transition: color 3.0s;
+}
+
+.glyphicon-edit:hover {
+    color: #3072ab;
+    transition: color 0.1s;
+}
+
+.glyphicon-trash:hover {
+    color: #ed4444;
+    transition: color 0.1s;
+}
+
+.Float-Right {
+    float: right;
+}
+
+.In-Line {
+    display: inline;
+}
